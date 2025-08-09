@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vida Nómada — Contacto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto — Vida Nómada</title>
   <meta name="description" content="Escríbeme para colaborar o resolver dudas sobre vida nómada.">
+  <link rel="canonical" href="https://juanaporahi.com/contacto.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vida Nómada">
+  <meta property="og:title" content="Contacto — Vida Nómada">
+  <meta property="og:description" content="Escríbeme para colaborar o resolver dudas sobre vida nómada.">
+  <meta property="og:url" content="https://juanaporahi.com/contacto.html">
+  <meta property="og:image" content="https://juanaporahi.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header>
@@ -71,9 +86,31 @@
           <div class="newsletter-signup" style="margin-top:1rem">
             <h3>Suscríbete</h3>
             <p>Recibe novedades y descuentos.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
-              <input type="email" class="newsletter-input" placeholder="tu-email@ejemplo.com" required>
-              <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
+            <form name="contacto" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+            <input type="hidden" name="form-name" value="contacto">
+            <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
+
+            <div class="grid" style="grid-template-columns:1fr 1fr; gap:1rem">
+                <div>
+                <label class="footer-text">Nombre</label>
+                <input type="text" name="name" placeholder="Jane Doe" required minlength="2">
+                </div>
+                <div>
+                <label class="footer-text">Email</label>
+                <input type="email" name="email" placeholder="tu@email.com" required>
+                </div>
+            </div>
+            <div style="margin-top:1rem">
+                <label class="footer-text">Asunto</label>
+                <input type="text" name="subject" placeholder="Consulta / Colaboración" required minlength="3">
+            </div>
+            <div style="margin-top:1rem">
+                <label class="footer-text">Mensaje</label>
+                <textarea name="message" rows="6" placeholder="Cuéntame en qué puedo ayudarte" required minlength="10"></textarea>
+            </div>
+            <div style="margin-top:1rem">
+                <button class="btn-primary" type="submit">Enviar</button>
+            </div>
             </form>
           </div>
         </div>

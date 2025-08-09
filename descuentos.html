@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vida Nómada — Descuentos</title>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descuentos para Nómadas — Vida Nómada</title>
+  <meta name="description" content="Herramientas esenciales con descuentos: seguro nómada, VPN, Airbnb, Notion, Wise y más.">
+  <link rel="canonical" href="https://juanaporahi.com/descuentos.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vida Nómada">
+  <meta property="og:title" content="Descuentos para Nómadas">
+  <meta property="og:description" content="Herramientas esenciales con descuentos: seguro nómada, VPN, Airbnb, Notion, Wise y más.">
+  <meta property="og:url" content="https://juanaporahi.com/descuentos.html">
+  <meta property="og:image" content="https://juanaporahi.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Descuentos y herramientas esenciales para nómadas digitales.">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header>
@@ -97,9 +112,11 @@
       <div class="newsletter-signup">
         <h3>🎁 Recibe Descuentos Exclusivos</h3>
         <p>Únete a mi newsletter para recibir ofertas curadas cada semana</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
-          <input type="email" class="newsletter-input" placeholder="tu-email@ejemplo.com" required>
-          <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
+        <form name="newsletter" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter">
+            <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
+            <input type="email" name="email" placeholder="tu-email@ejemplo.com" class="newsletter-input" required>
+            <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
         </form>
         <small>Sin spam. Puedes cancelar cuando quieras.</small>
       </div>

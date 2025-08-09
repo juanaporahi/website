@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Exportador OG & Icons — juanaporahi.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#FF6B6B;--bg:#222831}
+  body{font-family:Inter,system-ui; margin:0; padding:24px; background:#0f1217; color:#eaecef}
+  h1{font-family:Poppins,system-ui; margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+  .card{background:#161b22;border:1px solid #2a2f37;border-radius:12px;padding:16px}
+  button{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer}
+  canvas{width:100%;height:auto;border-radius:8px;background:#000}
+  .hint{color:#9ba7b4;font-size:14px;margin-bottom:12px}
+</style>
+</head>
+<body>
+  <h1>Exportador de Imágenes — juanaporahi.com</h1>
+  <p class="hint">1) Espera a que carguen las fuentes · 2) Haz clic en “Download” para guardar PNGs · 3) Sube los archivos a la raíz del sitio.</p>
+
+  <h2>Open Graph (1200×630)</h2>
+  <div id="ogs" class="grid"></div>
+
+  <h2 style="margin-top:28px">App Icons</h2>
+  <div id="icons" class="grid"></div>
+
+<script>
+const brand = '#FF6B6B';
+const dark = '#222831';
+const site = 'Vida Nómada';
+const urlBase = 'https://juanaporahi.com/';
+
+const ogItems = [
+  {file:'og-image.png', title:'Vida Nómada', subtitle:'Blog de Libertad Digital', emoji:'🌎'},
+  {file:'og-post-libertad.png', title:'Cómo Encontrar la Verdadera Libertad', subtitle:'Pasos prácticos para construir libertad digital', emoji:'🗽'},
+  {file:'og-post-viajar-con-perros.png', title:'Viajar con Perros: Guía Completa', subtitle:'Documentación, salud y alojamientos pet‑friendly', emoji:'🐕'},
+  {file:'og-post-ingresos-online.png', title:'10 Formas de Generar Ingresos Online', subtitle:'De freelance a productos digitales y SaaS', emoji:'💻'},
+  {file:'og-post-minimalismo.png', title:'Minimalismo Digital para Nómadas', subtitle:'Simplifica tu stack, archivos y seguridad', emoji:'🌟'},
+  {file:'og-post-trabajo-remoto.png', title:'Trabajar Remotamente: Mejores Prácticas', subtitle:'Rutinas, ergonomía y comunicación asíncrona', emoji:'🎯'},
+  {file:'og-post-destinos-2025.png', title:'Mejores Destinos para 2025', subtitle:'Conectividad, costo de vida y comunidad', emoji:'🏝️'},
+];
+
+const appIcons = [
+  {size:192, file:'icon-192.png'},
+  {size:512, file:'icon-512.png'},
+  {size:180, file:'apple-touch-icon.png'},
+  {size:48, file:'favicon-48.png'}
+];
+
+async function drawOG({title, subtitle, emoji}) {
+  const w=1200, h=630, pad=72;
+  const c=document.createElement('canvas'); c.width=w; c.height=h;
+  const ctx=c.getContext('2d');
+
+  // Fondo gradiente + textura
+  const grad=ctx.createLinearGradient(0,0,w,h);
+  grad.addColorStop(0, brand); grad.addColorStop(1, dark);
+  ctx.fillStyle=grad; ctx.fillRect(0,0,w,h);
+  ctx.fillStyle='rgba(255,255,255,0.06)';
+  for(let i=0;i<80;i++){
+    const x=Math.random()*w, y=Math.random()*h, r=Math.random()*3;
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill();
+  }
+
+  // Panel
+  ctx.fillStyle='rgba(0,0,0,0.25)';
+  roundRect(ctx, pad-6, pad-6, w-pad*2+12, h-pad*2+12, 24); ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.08)';
+  roundRect(ctx, pad, pad, w-pad*2, h-pad*2, 20); ctx.fill();
+
+  // Emoji
+  ctx.font='bold 160px "Apple Color Emoji","Segoe UI Emoji",Noto Color Emoji,system-ui,sans-serif';
+  ctx.textBaseline='top';
+  ctx.fillText(emoji, pad+6, pad+6);
+
+  // Título
+  await document.fonts.ready;
+  ctx.fillStyle='#fff';
+  ctx.font='800 72px Poppins,system-ui,sans-serif';
+  wrapText(ctx, title, pad+180, pad+20, w-pad*2-40, 80);
+
+  // Subtítulo
+  ctx.fillStyle='rgba(255,255,255,0.85)';
+  ctx.font='600 36px Inter,system-ui,sans-serif';
+  wrapText(ctx, subtitle, pad+180, pad+200, w-pad*2-40, 46);
+
+  // Marca
+  ctx.fillStyle='rgba(255,255,255,0.9)';
+  ctx.font='700 32px Inter,system-ui,sans-serif';
+  ctx.fillText(site + ' • ' + new URL(urlBase).host, pad+180, h-pad-48);
+
+  return c;
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight){
+  const words=text.split(' ');
+  let line='', yy=y;
+  for(let n=0;n<words.length;n++){
+    const test=line+words[n]+' ';
+    const w=ctx.measureText(test).width;
+    if(w>maxWidth && n>0){ ctx.fillText(line, x, yy); line=words[n]+' '; yy+=lineHeight; }
+    else line=test;
+  }
+  ctx.fillText(line, x, yy);
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+function downloadCanvas(canvas, filename){
+  const a=document.createElement('a');
+  a.download=filename;
+  a.href=canvas.toDataURL('image/png');
+  a.click();
+}
+
+function card(el, canvas, filename){
+  el.innerHTML='';
+  el.appendChild(canvas);
+  const btn=document.createElement('button');
+  btn.textContent='Download: '+filename;
+  btn.onclick=()=>downloadCanvas(canvas, filename);
+  el.appendChild(document.createElement('br'));
+  el.appendChild(document.createElement('br'));
+  el.appendChild(btn);
+}
+
+(async function renderAll(){
+  // OGs
+  const ogWrap=document.getElementById('ogs');
+  for(const item of ogItems){
+    const c=await drawOG(item);
+    const holder=document.createElement('div'); holder.className='card';
+    const h=document.createElement('div'); h.style.marginBottom='8px'; h.textContent=item.title;
+    holder.appendChild(h);
+    ogWrap.appendChild(holder);
+    card(holder, c, item.file);
+  }
+
+  // Icons (desde /icon.svg embebido simplificado)
+  const iconWrap=document.getElementById('icons');
+  for(const ic of appIcons){
+    const c=document.createElement('canvas'); c.width=ic.size; c.height=ic.size;
+    const ctx=c.getContext('2d');
+    // fondo redondeado brand->dark
+    const grad=ctx.createLinearGradient(0,0,ic.size,ic.size);
+    grad.addColorStop(0, brand); grad.addColorStop(1, dark);
+    ctx.fillStyle=grad;
+    roundRect(ctx, 0, 0, ic.size, ic.size, Math.round(ic.size*0.22)); ctx.fill();
+
+    // globo simple
+    const R=ic.size*0.33, cx=ic.size/2, cy=ic.size/2;
+    ctx.beginPath(); ctx.fillStyle='#fff'; ctx.arc(cx,cy,R+8,0,Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.fillStyle='#1DA1F2'; ctx.arc(cx,cy,R,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle='#fff'; ctx.lineWidth=Math.max(2, ic.size*0.012);
+    // meridianos
+    ctx.beginPath(); ctx.arc(cx,cy,R*0.88,0,Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx,cy,R*0.7,R*0.88,0,0,Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx,cy,R*0.38,R*0.88,0,0,Math.PI*2); ctx.stroke();
+    // paralelos
+    const lw=ctx.lineWidth;
+    ctx.beginPath(); ctx.moveTo(cx-R*0.88, cy); ctx.lineTo(cx+R*0.88, cy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx-R*0.78, cy-R*0.35); ctx.lineTo(cx+R*0.78, cy-R*0.35); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx-R*0.78, cy+R*0.35); ctx.lineTo(cx+R*0.78, cy+R*0.35); ctx.stroke();
+
+    const holder=document.createElement('div'); holder.className='card';
+    const h=document.createElement('div'); h.style.marginBottom='8px'; h.textContent=`App Icon ${ic.size}×${ic.size}`;
+    holder.appendChild(h);
+    iconWrap.appendChild(holder);
+    card(holder, c, ic.file);
+  }
+})();
+</script>
+</body>
+</html>

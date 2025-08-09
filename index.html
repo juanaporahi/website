@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vida Nómada — Blog de Libertad Digital</title>
-  <meta name="description" content="Guías prácticas para crear libertad digital: ingresos online, destinos nómadas y productividad remota.">
-  <link rel="canonical" href="https://juanaporahi.com/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Vida Nómada">
-  <meta property="og:title" content="Vida Nómada — Blog de Libertad Digital">
-  <meta property="og:description" content="Guías prácticas para crear libertad digital: ingresos online, destinos nómadas y productividad remota.">
-  <meta property="og:url" content="https://juanaporahi.com/">
-  <meta property="og:image" content="https://juanaporahi.com/og-image.jpg">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+    <title>Vida Nómada - Blog de Libertad Digital</title>
+    <meta name="description" content="Descubre cómo vivir sin límites, trabajar desde cualquier lugar y construir la libertad que siempre has soñado.">
+    
+    <!-- Favicon e Iconos -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/icon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vida Nómada - Blog de Libertad Digital">
+    <meta property="og:description" content="Descubre cómo vivir sin límites, trabajar desde cualquier lugar y construir la libertad que siempre has soñado.">
+    <meta property="og:image" content="https://juanaporahi.com/og-image.png">
+    <meta property="og:url" content="https://juanaporahi.com/">
+    <meta property="og:type" content="website">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vida Nómada - Blog de Libertad Digital">
+    <meta name="twitter:description" content="Descubre cómo vivir sin límites, trabajar desde cualquier lugar y construir la libertad que siempre has soñado.">
+    <meta name="twitter:image" content="https://juanaporahi.com/og-image.png">
 
-  <!-- JSON-LD WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Vida Nómada",
-    "url":"https://juanaporahi.com/",
-    "publisher":{"@type":"Person","name":"Juana Por Ahí"}
-  }
-  </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Header -->
@@ -51,7 +46,6 @@
       </nav>
     </div>
   </header>
-
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -106,11 +100,9 @@
       <div class="newsletter-signup">
         <h3>🎁 Recibe Descuentos Exclusivos</h3>
         <p>Únete a mi newsletter y recibe los mejores deals para nómadas digitales cada semana</p>
-        <form name="newsletter" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
-            <input type="hidden" name="form-name" value="newsletter">
-            <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
+        <form name="newsletter" method="POST" data-netlify="true" action="/gracias.html" class="newsletter-form">
             <input type="email" name="email" placeholder="tu-email@ejemplo.com" class="newsletter-input" required>
-            <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
+            <button type="submit" class="btn-primary newsletter-btn">Suscribirme</button>
         </form>
         <small>Sin spam. Puedes cancelar cuando quieras.</small>
       </div>

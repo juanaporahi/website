@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vida Nómada — Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <meta name="description" content="Blog sobre libertad digital, ingresos online y vida nómada."/>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">🌎 Juana Por Ahí</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="descuentos.html">Descuentos</a></li>
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu" aria-label="Abrir menú">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Encuentra tu Libertad Digital</h1>
+      <p>Descubre cómo crear una vida sin límites, trabajar desde cualquier lugar del mundo y construir la libertad que siempre has soñado.</p>
+      <a href="blog.html" class="btn-primary">Explorar el Blog</a>
+    </div>
+  </section>
+
+  <!-- Últimos posts (muestras) -->
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Últimos Posts</h2>
+      <p class="section-subtitle">Guías prácticas, consejos reales y estrategias probadas para tu vida nómada</p>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">🗽</div>
+          <div class="blog-content">
+            <span class="blog-category">Libertad</span>
+            <h3 class="blog-title">Cómo Encontrar la Verdadera Libertad</h3>
+            <p class="blog-excerpt">Pasos esenciales para liberarte de ataduras y crear la vida que deseas.</p>
+            <a href="blog.html#libertad" class="read-more">Leer Más</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">🐕</div>
+          <div class="blog-content">
+            <span class="blog-category">Viajes</span>
+            <h3 class="blog-title">Viajar con Perros: Guía Completa</h3>
+            <p class="blog-excerpt">Documentación, alojamiento pet‑friendly y seguridad.</p>
+            <a href="blog.html#perros" class="read-more">Leer Más</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">💻</div>
+          <div class="blog-content">
+            <span class="blog-category">Dinero Online</span>
+            <h3 class="blog-title">10 Formas de Generar Ingresos Online</h3>
+            <p class="blog-excerpt">Fuentes pasivas y activas desde cualquier lugar.</p>
+            <a href="blog.html#ingresos" class="read-more">Leer Más</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Newsletter -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="newsletter-signup">
+        <h3>🎁 Recibe Descuentos Exclusivos</h3>
+        <p>Únete a mi newsletter y recibe los mejores deals para nómadas digitales cada semana</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+          <input type="email" placeholder="tu-email@ejemplo.com" class="newsletter-input" required>
+          <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
+        </form>
+        <small>Sin spam. Puedes cancelar cuando quieras.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#" title="Email">📧</a>
+        <a href="#" title="Instagram">📷</a>
+        <a href="#" title="Twitter">🐦</a>
+        <a href="#" title="LinkedIn">💼</a>
+      </div>
+      <p class="footer-text">&copy; 2025 Juana Por Ahí. Creando libertad, un viaje a la vez.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <a href="blog.html" class="btn-primary">Comienza tu Viaje</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vida Nómada — Descuentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Descuentos y herramientas esenciales para nómadas digitales.">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">🌎 Juana Por Ahí</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="descuentos.html">Descuentos</a></li>
+          <li><a href="sobre-mi.html">Sobre Mí</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu" aria-label="Abrir menú">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Descuentos Exclusivos</h1>
+      <p>Herramientas y servicios esenciales con beneficios especiales para la comunidad.</p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="discounts-grid">
+        <div class="discount-card featured">
+          <div class="discount-badge">-20%</div>
+          <div class="discount-icon">✈️</div>
+          <h3>Nomad Insurance</h3>
+          <p class="discount-description">Seguro médico internacional con telemedicina.</p>
+          <div class="discount-price">
+            <span class="old-price">$89/mes</span><span class="new-price">$71/mes</span>
+          </div>
+          <a href="#" class="btn-primary discount-btn">Obtener Descuento</a>
+          <small class="discount-validity">Válido hasta fin de mes</small>
+        </div>
+
+        <div class="discount-card">
+          <div class="discount-badge">-15%</div>
+          <div class="discount-icon">💻</div>
+          <h3>NordVPN</h3>
+          <p class="discount-description">VPN premium para trabajar seguro en WiFi públicos.</p>
+          <div class="discount-price">
+            <span class="old-price">$11.95/mes</span><span class="new-price">$10.15/mes</span>
+          </div>
+          <a href="#" class="btn-secondary discount-btn">Ver Oferta</a>
+        </div>
+
+        <div class="discount-card">
+          <div class="discount-badge">-30%</div>
+          <div class="discount-icon">🏠</div>
+          <h3>Airbnb</h3>
+          <p class="discount-description">Crédito especial para estancias largas.</p>
+          <div class="discount-price"><span class="discount-savings">Hasta $50 de crédito</span></div>
+          <a href="#" class="btn-secondary discount-btn">Obtener Crédito</a>
+        </div>
+
+        <div class="discount-card">
+          <div class="discount-badge">GRATIS</div>
+          <div class="discount-icon">📊</div>
+          <h3>Notion Pro</h3>
+          <p class="discount-description">3 meses gratis del plan Pro.</p>
+          <div class="discount-price"><span class="old-price">$8/mes</span><span class="new-price">Gratis por 3 meses</span></div>
+          <a href="#" class="btn-secondary discount-btn">Activar Gratis</a>
+        </div>
+
+        <div class="discount-card">
+          <div class="discount-badge">-25%</div>
+          <div class="discount-icon">💳</div>
+          <h3>Wise</h3>
+          <p class="discount-description">Tarjeta multicurrency sin comisiones ocultas.</p>
+          <div class="discount-price"><span class="old-price">$9 setup</span><span class="new-price">Setup gratuito</span></div>
+          <a href="#" class="btn-secondary discount-btn">Obtener Tarjeta</a>
+        </div>
+
+        <div class="discount-card">
+          <div class="discount-badge">-40%</div>
+          <div class="discount-icon">🎧</div>
+          <h3>Sony WH‑1000XM5</h3>
+          <p class="discount-description">Cancelación de ruido premium para trabajar en movimiento.</p>
+          <div class="discount-price"><span class="old-price">$399</span><span class="new-price">$239</span></div>
+          <a href="#" class="btn-secondary discount-btn">Ver en Amazon</a>
+        </div>
+      </div>
+
+      <div class="newsletter-signup">
+        <h3>🎁 Recibe Descuentos Exclusivos</h3>
+        <p>Únete a mi newsletter para recibir ofertas curadas cada semana</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+          <input type="email" class="newsletter-input" placeholder="tu-email@ejemplo.com" required>
+          <button class="btn-primary newsletter-btn" type="submit">Suscribirme</button>
+        </form>
+        <small>Sin spam. Puedes cancelar cuando quieras.</small>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#">📧</a><a href="#">📷</a><a href="#">🐦</a><a href="#">💼</a>
+      </div>
+      <p class="footer-text">&copy; 2025 Juana Por Ahí.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
